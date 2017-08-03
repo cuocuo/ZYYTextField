@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "ZYYTextField.h"
 
-@interface ViewController ()
+@interface ViewController ()<UITextFieldDelegate>
 
 @end
 
@@ -17,8 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    ZYYTextField *textField = [[ZYYTextField alloc] initWithFrame:CGRectMake(40, 150, [UIScreen mainScreen].bounds.size.width - 80, 40)];
+    ZYYTextField *textField = [[ZYYTextField alloc] initWithFrame:CGRectMake(40, 200, [UIScreen mainScreen].bounds.size.width - 80, 40)];
     textField.placeholder = @"用户名";
+    textField.returnKeyType = UIReturnKeyDone;
+    textField.delegate = self;
     [self.view addSubview:textField];
 }
 
@@ -28,5 +30,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    [textField resignFirstResponder];
+    return YES;
+}
 @end

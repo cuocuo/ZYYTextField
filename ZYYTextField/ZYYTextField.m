@@ -30,7 +30,7 @@
     
     self.lineView = [[UIView alloc] initWithFrame:CGRectMake(0, frame.size.height - 1, 0, 1)];
     _lineView.backgroundColor = [UIColor colorWithRed:0xFA/255.0 green:0x68/255.0 blue:0x64/255.0 alpha:1.0];
-    _lineView.layer.anchorPoint = CGPointZero;
+    _lineView.layer.anchorPoint = CGPointMake(0, 0.5);
     [self addSubview:_lineView];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(zyy_textFieldDidBeginEditing:) name:UITextFieldTextDidBeginEditingNotification object:self];
@@ -163,7 +163,7 @@
     if (!_placeholderCacheLabel) {
         _placeholderCacheLabel = [[UILabel alloc] init];
         _placeholderCacheLabel.layer.anchorPoint = CGPointZero;
-        _placeholderCacheLabel.frame = CGRectMake(2, 0, self.bounds.size.width, self.bounds.size.height);
+        _placeholderCacheLabel.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
     }
     return _placeholderCacheLabel;
 }
